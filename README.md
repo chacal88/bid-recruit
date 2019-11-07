@@ -37,4 +37,5 @@ Host: localhost:3000
 Authorization: bearer 08075352ae989e7470bf11d516b5045c8e717e33
 ```
 
-
+Você tambem pode importar no seu postman o schema
+[link para schema](https://raw.githubusercontent.com/chacal88/bid-recruit/master/BidRecruit.postman_collection.json)
