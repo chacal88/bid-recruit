@@ -12,14 +12,25 @@ export default {
     resolve: async (source, args) => {
 
         let language = await Language.findOne({name: args.team.language_name})
-        console.log(language)
+
         if (!language) {
             return;
         }
 
-        let team = await Team.findById(args.team.id)
+        let team = await Team.findById(args.team.id);
         if (!team) {
-            return;
+            throw new Error('Team not found')
+        }
+
+        let hasLanguage = Team.findOne({
+            "_id": team._id,
+            "languages": {
+                $in: [language]
+            }
+        });
+
+        if (!hasLanguage) {
+            throw new Error('This team already has this language')
         }
 
         team.languages.push(language);

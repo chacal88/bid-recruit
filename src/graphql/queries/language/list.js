@@ -10,7 +10,9 @@ import Language from "../../../models/Language";
 export default {
     type: new GraphQLList(LanguageObject),
     resolve: async () => {
+
         const result = await Language.find({});
+
         return result;
     }
 }

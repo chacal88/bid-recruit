@@ -17,14 +17,16 @@ export default {
     },
     resolve: async (source, args) => {
 
-        let language = await Language.findOne({
+        const language = await Language.findOne({
             name: args.language_name
         });
 
-        return Team.find({
+        const team = Team.find({
             "languages": {
                 _id: language._id
             }
         });
+
+        return team;
     }
 }

@@ -15,7 +15,9 @@ export default {
         }
     },
     resolve: async (source, args) => {
+
         const result = await User.findOne({_id: args.id})
+
         return result;
     }
 }

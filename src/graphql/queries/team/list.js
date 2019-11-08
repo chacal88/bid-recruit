@@ -10,7 +10,9 @@ import Team from "../../../models/Team";
 export default {
     type: new GraphQLList(TeamObject),
     resolve: async () => {
+
         const result = await Team.find({});
+
         return result;
     }
 }

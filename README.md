@@ -1,5 +1,9 @@
 # Instalação da API
 
+Para inicializar a aplicação digite o comando
+
+`docker-compose up`
+
 
 #Utilização da API
 

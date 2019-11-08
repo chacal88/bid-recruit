@@ -18,14 +18,20 @@ export default {
     },
     resolve: async (source, args) => {
 
-        let team = await Team.findOne({
+        const team = await Team.findOne({
             name: args.team_name
         }).populate('languages');
 
-        return User.find({
+        if(!team){
+            throw new Error('Team not found')
+        }
+
+        const users = User.find({
             "languages": {
                 $in: team.languages
             }
         });
+
+        return users;
     }
 }

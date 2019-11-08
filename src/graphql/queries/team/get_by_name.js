@@ -15,7 +15,9 @@ export default {
         }
     },
     resolve: async (source, args) => {
+
         const result = await Team.findOne({name: args.name})
+
         return result;
     }
 }

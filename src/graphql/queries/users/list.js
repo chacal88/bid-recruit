@@ -10,7 +10,9 @@ import User from './../../../models/User';
 export default {
     type: new GraphQLList(UserObject),
     resolve: async () => {
+
         const result = await User.find({});
+
         return result;
     }
 }

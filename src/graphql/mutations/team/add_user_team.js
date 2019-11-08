@@ -12,12 +12,23 @@ export default {
 
         let user = await User.findOne({uuid: args.team.user_uuid})
         if (!user) {
-            return;
+            throw new Error('User not found')
         }
 
         let team = await Team.findById(args.team.id)
         if (!team) {
-            return;
+            throw new Error('Team not found')
+        }
+
+        let hasUser = Team.findOne({
+            "_id": team._id,
+            "users": {
+                $in: [user]
+            }
+        });
+
+        if (!hasUser) {
+            throw new Error('This team already has this user')
         }
 
         team.users.push(user);

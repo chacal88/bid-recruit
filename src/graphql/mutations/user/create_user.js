@@ -9,7 +9,7 @@ export default {
     },
     resolve: async (source, args) => {
 
-        let user = await UserService.create(args);
+        let user = await UserService.create(args)
 
         return user;
     }

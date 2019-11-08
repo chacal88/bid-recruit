@@ -10,6 +10,7 @@ export default {
     resolve: async (source, args) => {
 
         let team = await Team.findOne({name: args.team.name})
+
         if (!team) {
             team = await Team.create({name: args.team.name});
         }

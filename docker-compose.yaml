@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+  api:
+    image: node:8
+    container_name: api
+    working_dir: /usr/var/app
+    entrypoint: .docker/entrypoint.sh
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/var/app
+    networks:
+      - bid-network
+    env_file:
+      - .env
+
+  db:
+    image: mongo:4.0.4
+    container_name: db
+    ports:
+      - 27017-27019:27017-27019
+    volumes:
+      - ./data/db:/data/db
+    networks:
+      - bid-network
+
+networks:
+  bid-network:
+    driver: bridge
