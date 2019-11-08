@@ -5,6 +5,9 @@ To start the application type the command
 
 `docker-compose up`
 
+[link to access](http://localhost:3000)
+
+
 
 #API Usage
 
