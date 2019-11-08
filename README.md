@@ -32,7 +32,7 @@ After authorizing you will be directed to a screen with the access token, write 
 
 #API Documentation
 
-`access url to know End Points`
+`access url to know End Points and don't forget to set up the environment`
 
 [link to documentation](https://documenter.getpostman.com/view/1854300/SW17Saj2?version=latest)
 
